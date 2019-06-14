@@ -12,12 +12,8 @@ class ResetPointsWorker < ApplicationWorker
   private
 
   def update_loyalty(user)
-    points = total_points(user)
+    points = user.points.with_deleted.max_year_amount(*date_range)
     LoyaltyService.new(user).set_by_points(points)
-  end
-
-  def total_points(user)
-    user.points.with_deleted.by_date(*date_range).total_amount
   end
 
   def date_range

@@ -5,7 +5,12 @@ class Point < ApplicationRecord
   belongs_to :reason, polymorphic: true
 
   scope :by_date, ->(start_date, end_date) { where(created_at: start_date..end_date) }
+  scope :group_year, ->(date_range) { by_year(:created_at, range: date_range) }
   scope :total_amount, -> { sum(:amount) }
+
+  def self.max_year_amount(start_date = Time.zone.now.beginning_of_year, end_date = Time.zone.now.end_of_year)
+    group_by_year(:created_at, range: start_date..end_date).total_amount.values.max
+  end
 
 end
 

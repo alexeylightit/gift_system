@@ -5,7 +5,8 @@ module RewardCondition
     private
 
     def condition?
-      reward.gifted_by_dates(*year).exists?
+      return if reward.gifted_by_dates(*year).exists?
+      user.birth_day.today?
     end
 
     def year
