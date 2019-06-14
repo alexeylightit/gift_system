@@ -1,5 +1,5 @@
 module Reward
-  class PointsReward < BaseReward
+  class Points < BaseReward
     @reward = 'Free Points'
   end
 end

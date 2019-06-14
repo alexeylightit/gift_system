@@ -1,5 +1,5 @@
 module RewardCondition
-  class Loyalty < Default
+  class GoldUser < BaseCondition
 
     private
 

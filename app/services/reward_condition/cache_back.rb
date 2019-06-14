@@ -1,5 +1,5 @@
-module RewardScenario
-  class CacheBack < Default
+module RewardCondition
+  class CacheBack < BaseCondition
     delegate :transactions, to: :user
     REQUIRED_AMOUNT = 100
     REQUIRED_SIZE = 10

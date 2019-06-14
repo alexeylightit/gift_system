@@ -1,5 +1,5 @@
-module RewardScenario
-  class Birthday < Default
+module RewardCondition
+  class Birthday < BaseCondition
 
     private
 

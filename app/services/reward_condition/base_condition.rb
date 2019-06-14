@@ -1,5 +1,5 @@
 module RewardCondition
-  class Default
+  class BaseCondition
     attr_reader :user, :reward
 
     def initialize(user:, reward:)
@@ -8,8 +8,6 @@ module RewardCondition
     end
 
     def issue_reward!
-      puts "Creating reward: #{reward}"
-      puts "condition: #{condition?}"
       reward.create! if condition?
     end
 

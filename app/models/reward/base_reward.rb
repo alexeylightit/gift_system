@@ -1,27 +1,36 @@
-class Reward
-  attr_reader :user
+module Reward
+  class BaseReward
+    attr_reader :user, :type, :amount
 
-  def initialize(user)
-    @user = user
-  end
+    def initialize(user:, type:, amount:)
+      @user = user
+      @amount = amount
+      @type = type
+    end
 
-  # Virtual method
-  def can_be_gifted?
-    false
-  end
+    def create!
+      puts "Reward: amount: #{amount}, type:#{type}"
+      Gift.create(user: user, type: type, reward: reward, amount: amount)
+    end
 
-  def was_gifted?
-    gifted_reward.exists?
-  end
+    def gifted_by_dates(start_date, end_date)
+      gifted_reward.where(created_at: start_date..end_date)
+    end
 
-  def gifted_by_dates(start_date, end_date)
-    return false unless gifted_reward
-    gifted_reward.created_at.between? start_date, end_date
-  end
+    def gifted?
+      gifted_reward.exists?
+    end
 
-  private
+    protected
 
-  def gifted_reward
-    @gifted_reward ||= user.gifts.where(type: type)
+    def reward
+      self.class.instance_variable_get :@reward
+    end
+
+    private
+
+    def gifted_reward
+      @gifted_reward ||= user.gifts.where(type: type, reward: reward)
+    end
   end
 end

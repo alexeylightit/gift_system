@@ -1,5 +1,5 @@
 module RewardCondition
-  class Points < Default
+  class MonthlyPoints < BaseCondition
     delegate :points, to: :user
     REQUIRED_POINTS = 100
 

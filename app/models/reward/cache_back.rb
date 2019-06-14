@@ -1,5 +1,5 @@
 module Reward
-  class CachebackReward < BaseReward
+  class CacheBack < BaseReward
     @reward = 'Cacheback'
   end
 end

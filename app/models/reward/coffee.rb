@@ -1,5 +1,5 @@
 module Reward
-  class CoffeeReward < BaseReward
+  class Coffee < BaseReward
     @reward = 'Free Coffee'
   end
 end

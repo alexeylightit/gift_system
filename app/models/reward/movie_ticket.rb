@@ -1,5 +1,5 @@
 module Reward
-  class MovieTicketReward < BaseReward
+  class MovieTicket < BaseReward
     @reward = 'Free Movie tickets'
   end
 end
