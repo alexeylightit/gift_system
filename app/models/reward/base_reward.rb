@@ -10,8 +10,7 @@ module Reward
     end
 
     def create!
-      puts "Reward: amount: #{amount}, type:#{type}"
-      Gift.create(user: user, type: type, reward: reward, amount: amount)
+      Gift.create(user: user, type: type, reward: reward_name, amount: amount)
     end
 
     def gifted_by_dates(start_date, end_date)
@@ -22,16 +21,14 @@ module Reward
       gifted_reward.exists?
     end
 
-    protected
-
-    def reward
+    def reward_name
       self.class.instance_variable_get :@reward
     end
 
     private
 
     def gifted_reward
-      @gifted_reward ||= user.gifts.where(type: type, reward: reward)
+      @gifted_reward ||= user.gifts.where(type: type)
     end
   end
 end

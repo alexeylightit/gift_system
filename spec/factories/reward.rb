@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :reward, class: Reward::BaseReward do
+    user
     reward { 'Test reward' }
     type { 'test' }
     amount { 1 }

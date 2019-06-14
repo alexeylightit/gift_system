@@ -3,6 +3,5 @@ FactoryBot.define do
     user
     reward
     amount { 1 }
-
   end
 end

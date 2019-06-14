@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+
+# Entry point class
 class TransactionForm < ApplicationForm
   attr_accessor :user, :amount, :foreign
 

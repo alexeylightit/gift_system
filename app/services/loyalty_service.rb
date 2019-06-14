@@ -2,12 +2,16 @@
 class LoyaltyService < ApplicationService
   delegate :points, to: :user
 
+  # Used only to upgrade user's loyalty
+  # can't be downgraded
   def upgrade!
     return unless next_rank?
     next_type = next_loyalty[:type]
     RewardService.new(user: user).run_scenario!(:loyalty) if update_loyalty(next_type)
   end
 
+  # Set user's loyalty according to given points
+  # Can be downgraded
   def set_by_points(points = 0)
     loyalty = points_loyalty points
     update_loyalty loyalty[:type]
