@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class LoyaltyService < ApplicationService
   delegate :points, to: :user
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Reward
   class BaseReward
     attr_reader :user, :type, :amount

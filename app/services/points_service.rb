@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class PointsService < ApplicationService
 
   def add_points(amount:, reason:)

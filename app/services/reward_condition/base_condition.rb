@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module RewardCondition
   class BaseCondition
     attr_reader :user, :reward

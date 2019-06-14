@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module RewardCondition
   class Quarter < BaseCondition
     delegate :points, :transactions, to: :user

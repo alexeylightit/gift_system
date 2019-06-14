@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :points
   has_many :gifts
 
-  enum loyalty: %i[default gold platinum]
+  enum loyalty: Loyalty.enum
 
   validates_presence_of :name, :birth_date
 

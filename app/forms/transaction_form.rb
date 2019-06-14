@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class TransactionForm < ApplicationForm
   DIVIDER = 10
   FACTOR = 2
